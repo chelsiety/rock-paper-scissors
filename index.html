@@ -8,7 +8,16 @@
 </head>
 <body>
     <script>
-            
+        function getPlayerChoice(){
+            let playerChoicePrompt = prompt("Type your move: ");
+
+            /* Makes the input string with only the first letter capitalized */
+            let playerSelection= playerChoicePrompt.charAt(0).toUpperCase() + playerChoicePrompt.slice(1).toLowerCase(); 
+
+            return playerSelection
+        }
+
+    
     </script>
 </body>
 </html>
