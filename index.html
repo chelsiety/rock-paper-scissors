@@ -9,15 +9,29 @@
 <body>
     <script>
         function getPlayerChoice(){
+
             let playerChoicePrompt = prompt("Type your move: ");
 
-            /* Makes the input string with only the first letter capitalized */
+            // Makes the input string with only the first letter capitalized 
             let playerSelection= playerChoicePrompt.charAt(0).toUpperCase() + playerChoicePrompt.slice(1).toLowerCase(); 
 
-            return playerSelection
+            return playerSelection;
         }
 
-    
+        function getComputerChoice(){
+
+            const moveList = ['Rock', 'Paper', 'Scissors'];
+
+            // Get random index value to be used to access array element
+            const randomIndex = Math.floor(Math.random() * moveList.length);
+
+            // Get random item from the moveList array
+            const computerSelection = moveList[randomIndex];
+
+            return computerSelection;
+        }
+
+        
     </script>
 </body>
 </html>
