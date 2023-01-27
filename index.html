@@ -33,7 +33,6 @@
 
         function playRound(playerSelection, computerSelection){
 
-
             let playerScore = 0
             let computerScore = 0 
            
@@ -77,10 +76,28 @@
                 }
             }
         }
-        
+    /*    
     let playerChoice = getPlayerChoice()
     let computerChoice = getComputerChoice()
     playRound(playerChoice, computerChoice)
+    */
+
+    function askPlayAgain(){
+    
+        let playAgain = prompt(`
+        Do you want to play again? 
+        Press Y to play again 
+        Press any other key to stop playing`)
+       
+        // .startswith("Y") returns Boolean value True if input starts with "Y"
+        if (playAgain.toUpperCase().startsWith("Y")){ 
+            console.log("Restarting match. New round")
+        } else {
+            console.log("Ending game. Thank you for playing!")
+        }
+    }
+
+askPlayAgain()
     
     </script>
 </body>
