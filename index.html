@@ -31,7 +31,57 @@
             return computerSelection;
         }
 
+        function playRound(playerSelection, computerSelection){
+
+
+            let playerScore = 0
+            let computerScore = 0 
+           
+            console.log(`Player's move: ${playerSelection}`)
+            console.log(`Computer's move: ${computerSelection}`)
+
+            if (playerSelection === computerSelection){
+                console.log("It's a draw!")
+            }
+            // playerSelection Rock scenarios
+            else if (playerSelection === 'Rock'){
+
+                if (computerSelection === 'Scissors'){
+                    console.log(`You win! ${playerSelection} beats ${computerSelection}.`)
+                    ++ playerScore
+                } else if (computerSelection === 'Paper'){
+                    console.log(`You lose! ${computerSelection} beats ${playerSelection}.`)
+                    ++ computerScore
+                }
+            }
+            // playerSelection Paper scenarios
+            else if (playerSelection === 'Paper'){
+
+                if(computerSelection === 'Rock'){
+                    console.log(`You win! ${playerSelection} beats ${computerSelection}.`)
+                    ++ playerScore
+                } else if (computerSelection === 'Scissors'){
+                    console.log(`You lose! ${computerSelection} beats ${playerSelection}.`)
+                    ++ computerScore
+                }
+            }
+            // playerSelection Scissors scenarios
+            else if (playerSelection === 'Scissors'){
+
+                if (computerSelection === 'Paper'){
+                    console.log(`You win! ${playerSelection} beats ${computerSelection}.`)
+                    ++ playerScore
+                } else if (computerSelection === 'Rock'){
+                    console.log(`You lose! ${computerSelection} beats ${playerSelection}.`)
+                    ++ computerScore
+                }
+            }
+        }
         
+    let playerChoice = getPlayerChoice()
+    let computerChoice = getComputerChoice()
+    playRound(playerChoice, computerChoice)
+    
     </script>
 </body>
 </html>
