@@ -13,20 +13,57 @@ h1 {
   font-weight: 700;
   font-size: 3.5em;
   margin: 2.5rem 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+h2 {
+  font-size: 3em;
+  font-weight: 500;
 }
 
 .button {
-  height: 10rem;
-  width: 10rem;
+  height: 12rem;
+  width: 12rem;
   border-radius: 50%;
   margin: 3.5rem 3rem;
 
 }
 
 .display-img-board {
-  width: 24rem;
-  height: 14rem;
+  width: 25rem;
+  height: 25rem;
   background-color: hsl(218, 17%, 53%); 
-  border-radius: 3%;
+  border-radius: 8%;
+  margin: 0 10rem;
 }
 
+#section-display {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+ 
+
+  
+}
+
+#display-info {
+  font-size: 2.5em;
+  padding-top: 8rem;
+  text-align: center;
+
+}
+
+#section-buttons{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.display-competitor {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-evenly;
+  align-items: center;
+}
