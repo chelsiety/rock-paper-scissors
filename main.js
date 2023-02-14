@@ -127,4 +127,4 @@ let playAgainAnswer = playAgain.toUpperCase().startsWith("Y");
 return playAgainAnswer;
 }
 
-game()
+// game()
