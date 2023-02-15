@@ -23,6 +23,39 @@ h2 {
   font-weight: 500;
 }
 
+#section-display {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.display-img-board {
+  width: 25rem;
+  height: 25rem;
+  background-color: hsl(218, 17%, 53%); 
+  border-radius: 8%;
+  margin: 0 10rem;
+}
+
+#display-info {
+  font-size: 2.5em;
+  padding-top: 8rem;
+  text-align: center;
+}
+
+.display-competitor {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-evenly;
+  align-items: center;
+}
+
+#section-buttons{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
 .button {
   height: 12rem;
   width: 12rem;
@@ -35,37 +68,4 @@ h2 {
   border-color: hsl(215, 46%, 95%);
   box-shadow: 0 0 1rem hsl(215, 46%, 95%);
   transform: scale(1.1);
-}
-
-.display-img-board {
-  width: 25rem;
-  height: 25rem;
-  background-color: hsl(218, 17%, 53%); 
-  border-radius: 8%;
-  margin: 0 10rem;
-}
-
-#section-display {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-}
-
-#display-info {
-  font-size: 2.5em;
-  padding-top: 8rem;
-  text-align: center;
-}
-
-#section-buttons{
-  display: flex;
-  justify-content: center;
-  align-items: center;
-}
-
-.display-competitor {
-  display: flex;
-  flex-direction: column;
-  justify-content: space-evenly;
-  align-items: center;
 }
