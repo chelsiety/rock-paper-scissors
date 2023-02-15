@@ -28,7 +28,13 @@ h2 {
   width: 12rem;
   border-radius: 50%;
   margin: 3.5rem 3rem;
+  transition: all .1s ease;
 
+}
+.button:hover{
+  border-color: hsl(215, 46%, 95%);
+  box-shadow: 0 0 1rem hsl(215, 46%, 95%);
+  transform: scale(1.1);
 }
 
 .display-img-board {
@@ -43,16 +49,12 @@ h2 {
   display: flex;
   justify-content: center;
   align-items: center;
- 
-
-  
 }
 
 #display-info {
   font-size: 2.5em;
   padding-top: 8rem;
   text-align: center;
-
 }
 
 #section-buttons{
