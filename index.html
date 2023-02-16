@@ -21,25 +21,33 @@
                 <h2>Player: 
                     <span id="display-player-score" class="display-score">0</span>
                 </h2>
-                <div id="display-player-img" class="display-img-board"></div>
+                <div id="display-player-board" class="display-img-board">
+                    <!--Player choice id css set to display: none-->
+                    <img id="display-player-img" class="display-img" src="images/display-img-rock.svg" alt="display image">  
+                </div>
             </div>
-            <h3 id="display-info">First to 5 <br> wins the game</h3>
+            <div id="display-info">
+                <h3 id="info">First to 5 points wins the game</h3>
+            </div>
             <div id="display-computer" class="display-competitor">
                 <h2>Computer: 
                     <span id="display-computer-score" class="display-score">0</span>
                 </h2>
-                <div id="display-computer-img" class="display-img-board"></div>
+                <div id="display-computer-board" class="display-img-board">
+                    <!--Computer choice id css set to display: none-->
+                   <img id="display-computer-img" class="display-img" src="images/display-img-rock.svg" alt="display image">
+                </div>
             </div>
         </section>
         <section id="section-buttons">
             <button id="rock-button" class="button">
-                <img src="images/button-img-rock.svg" alt="rock button">
+                <img id="rock" class="button-img" src="images/button-img-rock.svg" alt="rock button">
             </button>
             <button id="paper-button" class="button">
-                <img src="images/button-img-paper.svg" alt="paper button">
+                <img id="paper" class="button-img" src="images/button-img-paper.svg" alt="paper button">
             </button>
             <button id="scissors-button" class="button">
-                <img src="images/button-img-scissors.svg" alt="scissors button">
+                <img id="scissors" class="button-img" src="images/button-img-scissors.svg" alt="scissors button">
             </button>
         </section>
     </main>
