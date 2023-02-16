@@ -1,12 +1,250 @@
-function game(){
 
+
+const result_h3 = document.querySelector('#display-info');
+
+const selectionButtons= document.querySelectorAll('.button-img');
+
+game();
+
+function game(){
     let scoreLimit = 5;
     let playerScore = 0;
     let computerScore = 0;
 
-    console.log("Rock Paper Scissors Game");
-    console.log(`First to reach ${scoreLimit} points wins`);
-    console.log('');
+    // Event listener
+    selectionButtons.forEach(button => button.addEventListener('click', playGame));
+
+    function playGame(buttonClicked){
+        const playerChoice = buttonClicked.target.id;
+        displayPlayerChoice();
+
+        const computerChoice = getComputerChoice();
+        displayComputerChoice();
+
+        
+
+        const roundWinner = playRound(playerChoice, computerChoice);
+
+    //  const roundWinnerInfo = 
+        displayRoundWinner(roundWinner);
+
+
+
+
+        // Increment score and display scoreboard
+        const playerScoreBoard_span = document.querySelector('#display-player-score');
+        const computerScoreBoard_span = document.querySelector('#display-computer-score');
+        if (roundWinner === 'playerWin'){
+            ++ playerScore;
+            playerScoreBoard_span.textContent = playerScore;
+        }
+        else if (roundWinner === 'computerWin'){
+            ++ computerScore;
+            computerScoreBoard_span.textContent = computerScore;
+        }
+        
+        // Show the final game results when one player reaches the score limit
+        if (playerScore === scoreLimit || computerScore === scoreLimit){
+            checkOverAllWinner()
+        }
+
+
+
+    function checkOverAllWinner(){
+        if (playerScore === scoreLimit || computerScore === scoreLimit){
+            // MODAL -- css html
+            /* IF PLAYERSCORE > COMPUTERSCORE {
+                innerText MESSAGE 1 - Congratulations!
+                INNTERTEXT MESSAGE 2 - You won the match
+            }
+            IF COMPUTERSCORE > PLAYERSCORE
+                INNERTEXT MESSAGE 1 - GAME OVER!
+                INNTERTEXT MESSAGE 2 - You won the match
+            
+            play again button 
+            window.location.reload
+            */
+        }
+
+    }
+
+    function displayPlayerChoice(){
+        let playerChoiceImage = document.querySelector('#display-player-img');
+        playerChoiceImage.src = `images/display-img-${playerChoice}.svg`;
+
+        // Change image display property to block
+        playerChoiceImage.style.display = 'block';
+        
+    }
+
+    function displayComputerChoice(){
+        let computerChoiceImage = document.querySelector('#display-computer-img');
+        computerChoiceImage.src = `images/display-img-${computerChoice}.svg`;
+
+        // Change image display property to block
+        computerChoiceImage.style.display = 'block';
+    }
+
+
+
+    function displayRoundWinner(roundWinner){
+
+        const info = document.querySelector('#info');
+        info.classList.add('result');
+
+        if (roundWinner === 'draw'){
+            info.textContent = "DRAW";
+        }
+        else if (roundWinner === 'playerWin'){
+            info.textContent = "YOU WIN";
+    
+        
+        } else if (roundWinner === 'computerWin'){
+            info.textContent = "YOU LOSE";        
+        } 
+    }
+
+    function getComputerChoice(){
+        const moveList = ['rock', 'paper', 'scissors'];
+        // Get random index value to be used to access array element
+        const randomIndex = Math.floor(Math.random() * moveList.length);
+        // Get random item from the moveList array
+        const computerSelection = moveList[randomIndex];
+        return computerSelection;
+    };
+
+
+    function playRound(playerSelection, computerSelection){
+        if (playerSelection === computerSelection){
+            return 'draw';
+        } 
+        // playerSelection Rock scenarios
+        else if (playerSelection === 'rock'){
+            if (computerSelection === 'scissors'){
+                return 'playerWin';
+            } else if (computerSelection === 'paper'){
+                return 'computerWin';
+            }
+        }
+        // playerSelection Paper scenarios
+        else if (playerSelection === 'paper'){
+            if(computerSelection === 'rock'){
+                return 'playerWin';
+            } else if (computerSelection === 'scissors'){
+                return 'computerWin';
+            }
+        }
+        // playerSelection Scissors scenarios
+        else if (playerSelection === 'scissors'){
+            if (computerSelection === 'paper'){
+                return 'playerWin';
+            } else if (computerSelection === 'rock'){
+                return 'computerWin';
+            }
+        }
+    }
+
+    }
+}
+
+
+/*
+function game(e){
+
+    let scoreLimit = 5;  
+    let playerScore = 0;
+    let computerScore = 0;
+
+    let playingGame = true; 
+
+    while (playingGame){
+
+        if (playerScore < scoreLimit && computerScore < scoreLimit) {
+            const playerChoice = e.target.id;
+            const computerChoice = getComputerChoice();
+
+   
+            const roundWinner = playRound(playerChoice, computerChoice);
+
+
+            const info = document.querySelector('#info');
+            info.classList.add('result');
+
+            console.log('player:' + playerChoice)
+            console.log('computer:' +computerChoice)
+        
+            if (roundWinner === 'draw'){
+                info.textContent = "DRAW";
+            }
+            else if (roundWinner === 'playerWin'){
+                ++ playerScore;
+                info.textContent = "YOU WIN";
+            
+            } else if (roundWinner === 'computerWin'){
+                ++ computerScore;
+                info.textContent = "YOU LOSE";
+        
+            } 
+
+        }
+        else if (playerScore === scoreLimit){
+            playingGame = false;
+        }
+        else if (computerScore === scoreLimit){
+            playingGame = false;
+        }
+       
+    }
+
+    
+}
+
+function getComputerChoice(){
+    const moveList = ['rock', 'paper', 'scissors'];
+    // Get random index value to be used to access array element
+    const randomIndex = Math.floor(Math.random() * moveList.length);
+    // Get random item from the moveList array
+    const computerSelection = moveList[randomIndex];
+    return computerSelection;
+};
+
+function playRound(playerSelection, computerSelection){
+    if (playerSelection === computerSelection){
+        return 'draw';
+    } 
+    // playerSelection Rock scenarios
+    else if (playerSelection === 'rock'){
+        if (computerSelection === 'scissors'){
+            return 'playerWin';
+        } else if (computerSelection === 'paper'){
+            return 'computerWin';
+        }
+    }
+    // playerSelection Paper scenarios
+    else if (playerSelection === 'paper'){
+        if(computerSelection === 'rock'){
+            return 'playerWin';
+        } else if (computerSelection === 'scissors'){
+            return 'computerWin';
+        }
+    }
+    // playerSelection Scissors scenarios
+    else if (playerSelection === 'scissors'){
+        if (computerSelection === 'paper'){
+            return 'playerWin';
+        } else if (computerSelection === 'rock'){
+            return 'computerWin';
+        }
+    }
+}
+
+
+
+*/
+
+/*
+function game(){
+
   
     let playingGame = true;
     while (playingGame){
@@ -17,15 +255,7 @@ function game(){
             let computerChoice = getComputerChoice();  // call getComputerChoice function
             let roundResult = playRound(playerChoice, computerChoice); // call playRound function
             
-            if (roundResult === 'playerWin'){
-                ++ playerScore;
-            } else if (roundResult === 'computerWin'){
-                ++ computerScore;
-            }
-
-            console.log(`Player Score: ${playerScore}`);
-            console.log(`Computer Score: ${computerScore}`);
-            console.log('');
+         
         }
         else if (playerScore === scoreLimit){
             console.log(`Congratulations! You win the match!`)
@@ -48,72 +278,8 @@ function game(){
     }
 }
 
-function getPlayerChoice(){
 
-    let playerChoicePrompt = prompt("Type your move: ");
 
-    // Makes the input string with only the first letter capitalized 
-    let playerSelection= playerChoicePrompt.charAt(0).toUpperCase() + playerChoicePrompt.slice(1).toLowerCase(); 
-
-    return playerSelection;
-}
-
-function getComputerChoice(){
-
-    const moveList = ['Rock', 'Paper', 'Scissors'];
-
-    // Get random index value to be used to access array element
-    const randomIndex = Math.floor(Math.random() * moveList.length);
-
-    // Get random item from the moveList array
-    const computerSelection = moveList[randomIndex];
-
-    return computerSelection;
-}
-
-function playRound(playerSelection, computerSelection){
-   
-    console.log(`Player's move: ${playerSelection}`);
-    console.log(`Computer's move: ${computerSelection}`);
-
-    if (playerSelection === computerSelection){
-        console.log("It's a draw!");
-        return 'tie';
-    }
-    // playerSelection Rock scenarios
-    else if (playerSelection === 'Rock'){
-
-        if (computerSelection === 'Scissors'){
-            console.log(`You win! ${playerSelection} beats ${computerSelection}.`);
-            return 'playerWin';
-        } else if (computerSelection === 'Paper'){
-            console.log(`You lose! ${computerSelection} beats ${playerSelection}.`);
-            return 'computerWin';
-        }
-    }
-    // playerSelection Paper scenarios
-    else if (playerSelection === 'Paper'){
-
-        if(computerSelection === 'Rock'){
-            console.log(`You win! ${playerSelection} beats ${computerSelection}.`);
-            return 'playerWin';
-        } else if (computerSelection === 'Scissors'){
-            console.log(`You lose! ${computerSelection} beats ${playerSelection}.`);
-            return 'computerWin';
-        }
-    }
-    // playerSelection Scissors scenarios
-    else if (playerSelection === 'Scissors'){
-
-        if (computerSelection === 'Paper'){
-            console.log(`You win! ${playerSelection} beats ${computerSelection}.`);
-            return 'playerWin';
-        } else if (computerSelection === 'Rock'){
-            console.log(`You lose! ${computerSelection} beats ${playerSelection}.`);
-            return 'computerWin';
-        }
-    }
-}
 
 function askPlayAgain(){
 
@@ -126,5 +292,8 @@ Press any other key to stop playing`);
 let playAgainAnswer = playAgain.toUpperCase().startsWith("Y");
 return playAgainAnswer;
 }
+
+*/
+
 
 // game()
