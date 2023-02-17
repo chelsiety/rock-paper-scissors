@@ -44,10 +44,10 @@ function game(){
         const gameOverText = document.querySelector('#game-over-text');
         const resultText = document.querySelector('#result-text');
 
-        console.log(playerScore)
-        console.log(computerScore)
         if (playerScore === scoreLimit || computerScore === scoreLimit){
             if (playerScore > computerScore){
+                gameOverText.textContent = "Congratulations!";
+                resultText.textContent = "You won the match";
                 endGameModal.style.display = 'block';
             } else {
                 gameOverText.textContent = "Game over!";
@@ -56,7 +56,7 @@ function game(){
             }
  
         }
-        /*
+        
         const playAgainButton = document.querySelector('#modal-play-again-button')
         playAgainButton.addEventListener('click', restartGame);
 
@@ -74,7 +74,7 @@ function game(){
 
         }
 
-   */
+   
 
     
     
