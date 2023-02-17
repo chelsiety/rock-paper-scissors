@@ -98,4 +98,55 @@ h2 {
   transform: scale(1.1);
 }
 
+.modal {
+  display: none; 
+  position: fixed;
+  z-index: 1;
+  left: 0;
+  top: 0;
+  height: 100%;
+  width: 100%;
+  overflow: auto;
+  background: hsla(0, 0%, 0%, 0.5); /* dark gray overlay when modal pops up */
+}
 
+.modal-content {
+  background: hsl(215, 46%, 95%);
+  text-align: center;
+  margin: 10% auto;
+  width: 43rem;
+  height: 18rem;
+  border-radius: 6%;
+  padding: 3rem;
+  box-shadow: 0 5px 8px 0 hsla(0, 0%, 0%, 0.2), 0 7px 20px 0 hsla(0, 0%, 0%, 0.17);
+
+}
+
+.modal-text {
+  color: hsl(213, 47%, 15%);
+  font-size: 2.8em;
+  font-weight: 500;
+  line-height: 1.5rem;
+}
+
+.play-again-button {
+  display: inline-block;
+  font-family: 'Montserrat', Verdana, Helvetica, sans-serif;
+  font-weight: 600;
+  padding: 1.5rem 3.5rem;
+  border-radius: 6%;
+  font-size: 1.5rem;
+  color: hsl(0, 0%, 100%);
+  cursor: pointer;
+  outline-color: transparent;
+  background-color:  hsl(213, 47%, 15%);
+  border: none;
+
+ 
+}
+
+.play-again-button:hover{
+  background-color:   hsl(213, 47%, 22%);
+  color: hsl(0, 0%, 100%);
+
+}
