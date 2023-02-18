@@ -1,7 +1,3 @@
-
-const selectionButtons= document.querySelectorAll('.button-img');
-
-
 game();
 
 function game(){
@@ -9,7 +5,7 @@ function game(){
     let playerScore = 0;
     let computerScore = 0;
 
-    // Event listeners
+    const selectionButtons= document.querySelectorAll('.button-img');
     selectionButtons.forEach(button => button.addEventListener('click', playGame));
 
     function playGame(buttonClicked){
@@ -18,13 +14,9 @@ function game(){
 
         const computerChoice = getComputerChoice();
         displayComputerChoice();
-
         
-
         const roundWinner = playRound(playerChoice, computerChoice);
         displayRoundWinner(roundWinner);
-
-
 
  
         // Increment score and display scoreboard
