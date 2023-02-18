@@ -54,7 +54,6 @@ function game(){
                 resultText.textContent = "You lost the match";
                 endGameModal.style.display = 'block';
             }
- 
         }
         
         const playAgainButton = document.querySelector('#modal-play-again-button')
@@ -70,14 +69,7 @@ function game(){
           
             info.textContent = "First to 5 points wins the game";
             endGameModal.style.display = 'none';
-
-
         }
-
-   
-
-    
-    
 
     function displayPlayerChoice(){
         let playerChoiceImage = document.querySelector('#display-player-img');
@@ -85,7 +77,6 @@ function game(){
 
         // Change image display property to block
         playerChoiceImage.style.display = 'block';
-        
     }
 
     function displayComputerChoice(){
@@ -95,8 +86,6 @@ function game(){
         // Change image display property to block
         computerChoiceImage.style.display = 'block';
     }
-
-
 
     function displayRoundWinner(roundWinner){
         const info = document.querySelector('#info');
