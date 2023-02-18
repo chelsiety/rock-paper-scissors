@@ -68,7 +68,6 @@ h2 {
   font-size: 3em;
   font-weight: 600;
   text-align: center;
-  
 }
 
 .display-competitor {
@@ -145,5 +144,4 @@ h2 {
 .play-again-button:hover{
   background-color:   hsl(213, 47%, 22%);
   color: hsl(0, 0%, 100%);
-
 }
